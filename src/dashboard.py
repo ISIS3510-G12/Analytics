@@ -31,11 +31,12 @@ with col1:
     st.metric("Total Consultations", int(top_events["count"].sum()))
 
     fig, ax = plt.subplots(figsize=(6, 4))
-    ax.bar(top_events["title"], top_events["count"], color="royalblue")
+    ax.bar(top_events["title"], top_events["count"], color="royalblue", width=0.5)
     ax.set_xlabel("Event")
     ax.set_ylabel("Consultations")
     ax.set_title("Top 5 Events")
-    plt.xticks(rotation=45, ha="right")
+    ax.set_ylim(0, max(top_events["count"]) + 2)  # Adjust Y-axis for balance
+    ax.set_xticklabels(top_events["title"], rotation=30, ha="right")
     st.pyplot(fig)
 
     st.write("📋 **Detailed View**")
@@ -47,10 +48,11 @@ with col2:
     st.metric("Total (Least Popular)", int(least_popular["count"].sum()))
 
     fig, ax = plt.subplots(figsize=(6, 4))
-    ax.barh(least_popular["event_type"], least_popular["count"], color="tomato")
+    ax.barh(least_popular["event_type"], least_popular["count"], color="tomato", height=0.5)
     ax.set_xlabel("Consultations")
     ax.set_ylabel("Event Type")
     ax.set_title("Bottom 5 Event Types")
+    ax.set_xlim(0, max(least_popular["count"]) + 2)  # Adjust X-axis for balance
     st.pyplot(fig)
 
     st.write("📋 **Detailed View**")
