@@ -29,10 +29,7 @@ This repository contains the source code for a analytics pipeline and a real-tim
    streamlit run src/dashboard.py
    ```
 
-4. You can now view your Streamlit app in your browser.
-   ```sh
-  Local URL: http://localhost:8501
-   ```
+4. Open your browser and go to the URL provided by Streamlit (usually http://localhost:8501)
 
 ## 📢 Additional Information
 This project is for educational purposes as part of the ISIS3510 course.
